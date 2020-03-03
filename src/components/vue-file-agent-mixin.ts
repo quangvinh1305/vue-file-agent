@@ -199,6 +199,7 @@ export default Vue.extend({
         .then(
           (res) => {
             this.$emit('upload', validFilesRawData);
+            console.log(res);
             this.$emit('uploadedResults', res);
             return res;
           },
