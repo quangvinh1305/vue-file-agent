@@ -2488,6 +2488,7 @@ var dragCounter = 0;
             }, this.prepareConfigureFn(configureXhr))
                 .then(function (res) {
                 _this.$emit('upload', validFilesRawData);
+                _this.$emit('uploadedResults', res);
                 return res;
             }, function (err) {
                 _this.$emit('upload:error', err);
