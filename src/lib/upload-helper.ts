@@ -12,12 +12,16 @@ class UploadHelper {
 
   public addHeaders(xhr: XMLHttpRequest, headers: object): XMLHttpRequest {
     xhr.setRequestHeader('Accept', 'application/json');
+    const jwtToken = window.localStorage.getItem('b4u_jwtToken');
     if (headers) {
       for (const key in headers) {
         if (headers.hasOwnProperty(key)) {
           xhr.setRequestHeader(key, (headers as any)[key]);
         }
       }
+    }
+    if (jwtToken) {
+      xhr.setRequestHeader('Authorization',  'Bearer ' + jwtToken);
     }
     return xhr;
   }
